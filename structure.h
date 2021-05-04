@@ -23,10 +23,7 @@ struct BSTnode{
     struct BSTnode *left, *right;
 };
 
-struct bucket{
-    int *arr;
-    struct node **link;
-};
+
 
 void Linked_list_insert(struct list *ll, int key);
 bool Linked_list_search(struct list *ll, int key);
@@ -41,8 +38,8 @@ struct BSTnode *BST_insert(struct BSTnode *root, int key);
 bool BST_search(struct BSTnode *root, int key);
 
 int hash_func(int number);
-void hash_insert(struct bucket *bk1, int key);
-bool hash_search(struct bucket bk1, int key);
+void hash_insert(struct list **bucket, int key);
+bool hash_search(struct list **bucket, int key);
 
 
 #endif

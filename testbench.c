@@ -197,17 +197,16 @@ int main (int argc, char **argv){
         start.tv_usec = end.tv_usec = 0;
         printf("hash:\n");
         gettimeofday(&start, NULL);
-        struct bucket bucket1;
-        bucket1.arr = malloc(sizeof(int) * BUCKET_MAX);
-        bucket1.link = malloc(sizeof(struct node*) * BUCKET_MAX);
+        struct list **bucket = malloc(sizeof(struct list*) * BUCKET_MAX);
 
         for(int i = 0; i < BUCKET_MAX; i++){
-            bucket1.arr[i] = -1;
-            bucket1.link[i] = NULL;
+            bucket[i] = malloc(sizeof(struct list));
+            bucket[i]->head = NULL;
+            bucket[i]->rear = NULL;       
         }
         
         for(int i = 0; i < testcase_ins; i++){
-            hash_insert(&bucket1, insert[i]);
+            hash_insert(bucket, insert[i]);
         }
 
         gettimeofday(&end, NULL);
@@ -217,7 +216,7 @@ int main (int argc, char **argv){
         gettimeofday(&start, NULL);
 
         for(int i = 0; i < testcase_qry; i++){
-            if(hash_search(bucket1, query[i]))
+            if(hash_search(bucket, query[i]))
                 printf("%d ", query[i]);
         }
         printf("\n");
