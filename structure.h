@@ -30,6 +30,7 @@ bool Linked_list_search(struct list *ll, int key);
 
 void Array_insert(struct Array *arr, int key);
 bool Array_search(struct Array *arr, int key);
+bool Array_Bsearch(int *arr, int left, int right, int key);
 void swap(int* a, int* b);
 int partition (int *arr, int low, int high);
 void quickSort(int *arr, int low, int high);

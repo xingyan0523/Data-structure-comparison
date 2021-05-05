@@ -18,6 +18,20 @@ bool Array_search(struct Array *arr, int key){
     return false;
 }
 
+bool Array_Bsearch(int *arr, int left, int right, int key){
+	if(left <= right){
+		int mid = left + (right - left) / 2;
+		if(arr[mid] == key)
+			return true;
+		
+		if(arr[mid] > key)
+			return Array_Bsearch(arr, left, mid - 1, key);
+
+		return Array_Bsearch(arr, mid + 1, right, key);
+	}
+	return false;
+}
+
 void swap(int* a, int* b) { 
 	int t = *a; 
 	*a = *b; 

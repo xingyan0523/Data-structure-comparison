@@ -83,7 +83,7 @@ int main (int argc, char **argv){
     }
     gettimeofday(&end, NULL);
     diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
-    printf("%lf\n", diff / 1000000.0);
+    //printf("%lf\n", diff / 1000000.0);
     
     
     if(ll){
@@ -104,14 +104,14 @@ int main (int argc, char **argv){
 
         gettimeofday(&start, NULL);
         for(int i = 0; i < testcase_qry; i++){
-            if(Linked_list_search(&list1, query[i]))
-                printf("%d ", query[i]);
+            Linked_list_search(&list1, query[i]);
+                //printf("%d ", query[i]);
             
         }
-        printf("\n");
+        //printf("\n");
         gettimeofday(&end, NULL);
         diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
-        printf("query time: %lf sec\n", diff / 1000000.0);
+        printf("query time: %lf sec\n\n", diff / 1000000.0);
     }
     
     if(arr){
@@ -131,13 +131,13 @@ int main (int argc, char **argv){
 
         gettimeofday(&start, NULL);
         for(int i = 0; i < testcase_qry; i++){
-            if(Array_search(&array, query[i]))
-                printf("%d ", query[i]);
+            Array_search(&array, query[i]);
+               // printf("%d ", query[i]);
         }
-        printf("\n");
+        //printf("\n");
         gettimeofday(&end, NULL);
         diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
-        printf("query time: %lf sec\n", diff / 1000000.0);
+        printf("query time: %lf sec\n\n", diff / 1000000.0);
         free(array.first);
     }
 
@@ -159,13 +159,13 @@ int main (int argc, char **argv){
         gettimeofday(&start, NULL);
 
         for(int i = 0; i < testcase_qry; i++){
-            if(Array_search(&array, query[i]))
-                printf("%d ", query[i]);
+            Array_Bsearch(array.first, 0, array.rear - 1, query[i]);  
+                //printf("%d ", query[i]);
         }
-        printf("\n");
+        //printf("\n");
         gettimeofday(&end, NULL);
         diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
-        printf("query time: %lf sec\n", diff / 1000000.0);
+        printf("query time: %lf sec\n\n", diff / 1000000.0);
         free(array.first);
     }
 
@@ -184,13 +184,13 @@ int main (int argc, char **argv){
 
         gettimeofday(&start, NULL);
         for(int i = 0; i < testcase_qry; i++){
-            if(BST_search(root, query[i]))
-                printf("%d ", query[i]);
+            BST_search(root, query[i]);
+                //printf("%d ", query[i]);
         }
-        printf("\n");
+        //printf("\n");
         gettimeofday(&end, NULL);
         diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
-        printf("query time: %lf sec\n", diff / 1000000.0);
+        printf("query time: %lf sec\n\n", diff / 1000000.0);
     }
 
     if(hash){
@@ -216,10 +216,10 @@ int main (int argc, char **argv){
         gettimeofday(&start, NULL);
 
         for(int i = 0; i < testcase_qry; i++){
-            if(hash_search(bucket, query[i]))
-                printf("%d ", query[i]);
+            hash_search(bucket, query[i]);
+                //printf("%d ", query[i]);
         }
-        printf("\n");
+        //printf("\n");
 
         gettimeofday(&end, NULL);
         diff = 1000000 * (end.tv_sec - start.tv_sec) + end.tv_usec - start.tv_usec;
